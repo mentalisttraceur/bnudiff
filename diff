@@ -1,0 +1,54 @@
+#!/bin/sh
+diff -U0 "$@" \
+| awk '
+   NR<=2 { next }
+   /^-/  { print "< " substr($0, 2) }
+   /^\+/ {
+    if(op ~ "^c$")
+    {
+     print "---"
+    }
+    print "> " substr($0, 2)
+    op = ""
+   }
+   /^@/ {
+    op = ""
+    split(substr($2, 2), old, ",")
+    split(substr($3, 2), new, ",")
+    old[3] = old[1] + old[2] - 1
+    if(old[3] > old[1])
+    {
+     old[3] = old[1] "," old[3]
+    }
+    else
+    {
+     if(old[2] ~ "^0$")
+     {
+      op = "a"
+     }
+     old[3] = old[1]
+    }
+    new[3] = new[1] + new[2] - 1
+    if(new[3] > new[1])
+    {
+     new[3] = new[1] "," new[3]
+    }
+    else
+    {
+     if(new[2] ~ "^0$")
+     {
+      op = "d"
+     }
+     new[3] = new[1]
+    }
+    if(op ~ "^$")
+    {
+     op = "c"
+    }
+    print old[3] op new[3]
+   }
+  '
+#| tr 0 '\0' \
+#| sed 's/%2/0/g; s/%1/%/g'
+#| sed 's/%/%1/; s/0/%2/g' \
+#| tr '\0' 0 \
