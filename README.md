@@ -33,7 +33,7 @@ It also depends on these two programs to succesfully parse binary data (needed
 to correctly convert "treat all files as text" diff output).
 
 * `sed` (BusyBox `awk` confuses null bytes for record separators,
-  At least BusyBox's `sed` can cleanly pass null bytes through unaltered.)
+  while BusyBox's `sed` can cleanly pass null bytes through unaltered.)
 * `tr` (BusyBox `sed` can't actually replace null bytes on the builds tested,
   while BusyBox `tr` handles null bytes without issue.)
 
