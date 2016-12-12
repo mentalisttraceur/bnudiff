@@ -51,7 +51,7 @@ Might be worth implementing as a fallback if people need this though.
   but cannot produce normal traditional diffs is BusyBox's, this isn't a major
   concern for me.
 * No intelligent option parsing,
-  so if you invoke it with "-u" or "-U" you won't get unified output.
+  so if you invoke it with `-u` or `-U` you won't get unified output.
 * No conversion to context diff - just to traditional.
   It's a slightly more complex problem that I'm not sure is worth working on.
   But feel free to let me know if you need this.
