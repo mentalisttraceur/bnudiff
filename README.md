@@ -1,4 +1,4 @@
-# bnudiff - _B_usyBox _N_on-_U_nified _diff_
+# bnudiff - *B*usyBox *N*on-*U*nified *diff*
 
 If you're on a system with BusyBox utilities (phones, routers, Alpine Linux,
 etc), you've probably noticed that its `diff` only produces unified diffs. The
