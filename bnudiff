@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/sh -
 # SPDX-License-Identifier: 0BSD
 # Copyright 2016-12-06 Alexander Kozhevnikov <mentalisttraceur@gmail.com>
 
